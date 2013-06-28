@@ -13,7 +13,7 @@ Here are some known areas with issues that need addressing:
   * No method of payment yet
 
 
-#Update 28 Jun '13
+#Update 28 June '13
 
 Tidied up some more code, updated the file structure. Added a guest checkout with form validation. Coming soon will be the order form with some kind of payment system, probably paypal.
 
