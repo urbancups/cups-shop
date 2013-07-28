@@ -51,8 +51,8 @@ app.configure(function(){
 require('./shop/router')(app, passport);
 
 // Listen for requests
-app.listen(process.env.PORT);
-console.log('Listening on port ' + process.env.PORT);
+app.listen(process.env.PORT || 5000);
+console.log('Listening on port ' + (process.env.PORT || 5000));
 
 // Handle all uncaught errors
 process.on('uncaughtException', function(err) {
