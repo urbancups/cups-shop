@@ -16,6 +16,8 @@ console.log('Running Version ' + info.version);
 // Connect to database
 database.startup(config.connection);
 console.log('Connecting to database...');
+database.loadProductsFromCSV('https://docs.google.com/spreadsheet/pub?key=0AikfFHWIDLaxdGFtamVXX1k3VjJSR1daZExZei1MZFE&single=true&gid=0&output=csv')
+console.log('Loading products from CSV');
   
 // Configure Express
 app.configure(function(){

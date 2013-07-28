@@ -1,6 +1,7 @@
 {
     
-    "connection" : "mongodb://test:test@dharma.mongohq.com:10013/nodeshop",
+	"connection_demo" : "mongodb://test:test@dharma.mongohq.com:10013/nodeshop",
+    "connection" : "mongodb://localhost:27017/nodeshop",
     "cookie_secret" : "session secret",
     
     "store" : {

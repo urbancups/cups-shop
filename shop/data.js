@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var csvdb = require('csvdb');
 
 // Require data models
 var User = require('../schemas/user');
@@ -25,6 +26,29 @@ module.exports = {
         // Add listener for opened connection
         mongoose.connection.on('open', function() {
             console.log('Connected to MongoDB!');
+        });
+    },
+
+    loadProductsFromCSV: function(source) {
+        var db = csvdb(source, { autofetch : 5000 });
+        db.on('fetch', function() {
+          for (var key in db.entries) {
+            var p = db.entries[key];
+            var product = new Product({
+                name: p.name,
+                pricing: {
+                    retail: p.price,
+                },
+                details: {
+                    description: p.description,
+                },
+                featured: p.featured,
+            },
+            {_id: false}
+            );
+            console.log(JSON.stringify(product));
+            // product.save();
+          }
         });
     },
 
