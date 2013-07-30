@@ -26,7 +26,7 @@ app.configure(function(){
     app.set('views', __dirname + '/shop/views');
     app.set('view engine', 'jade');
     
-    app.use(express.favicon());
+    app.use(express.favicon(__dirname + '/shop/public/img/favicon.png'));
     app.use(express.cookieParser());
     app.use(express.bodyParser());
 

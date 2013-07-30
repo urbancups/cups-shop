@@ -4,6 +4,7 @@ body {
   background: url("stripe.png");
   color: #242424;
   font-family: 'Open Sans', sans-serif;
+  padding-top: 80px;
 }
 
 .thumbnail h6 p {
