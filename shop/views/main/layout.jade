@@ -7,28 +7,32 @@ html(lang="en")
     link(href="/css/main.css", rel="stylesheet")
   body
     .modal.hide.fade#modal
-    .navbar.navbar-static-top
+    .navbar.navbar-fixed-top
         .navbar-inner
           .container
+            a.pull-left(href="/")
+              img.brand.logo(src='/img/logo.png')
             ul.nav
               li
-                a(href="/") Home
+                a(href="/") בית
               li
-                a(href="/about") About
+                a(href="/about") אודות
               li
-                a(href="/contact") Contact
+                a(href="/contact") צור קשר
               if (!locals.logged)
                 li
-                  a(data-toggle="modal", data-target="#modal", href="/modals/register") Register
+                  a(data-toggle="modal", data-target="#modal", href="/modals/register") הירשם
                 li
-                  a(data-toggle="modal", data-target="#modal", href="/modals/login") Login 
+                  a(data-toggle="modal", data-target="#modal", href="/modals/login") התחבר 
               else
                 li
-                  a(href="/account/home") Account
+                  a(href="/account/home") חשבון
                 li       
-                  a(href="/account/logout") Logout
+                  a(href="/account/logout") התנתק
             #cart
               include ../cart/cart
+            
+
     .container
       a(href="/")
         img(src="/img/style/header.png")
