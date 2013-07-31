@@ -1,4 +1,13 @@
 @import url("http://fonts.googleapis.com/css?family=Open\+Sans");
+@font-face {
+  font-family: 'Carmela';
+  src: url('Fonts/carmela.eot');
+  src: url('Fonts/carmela.eot?#iefix') format('embedded-opentype'),
+  url('Fonts/carmela.woff') format('woff'),
+  url('Fonts/carmela.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 
 body {
   background-color: #fff;
   background: url("stripe.png");
@@ -23,6 +32,7 @@ body {
   padding-top: 8px;
   padding-right: 20px;
   padding-left: 20px;
+  font: 16px/20px Carmela, Arial, sans-serif;
 }
 
 .navbar {

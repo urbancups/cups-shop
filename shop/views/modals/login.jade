@@ -1,20 +1,20 @@
 .modal-header
   a.close(data-dismiss="modal") &times;
-  h3 Log In
+  h3 התחבר
 .modal-body
   form(action="/account/login", method="post").form-horizontal
     fieldset
         br
         .control-group
             .control-group
-                label.control-label(for="email") Email
+                label.control-label(for="email") אימייל
                 .controls
-                    input(type="text", name="email", placeholder="Email Address")
+                    input(type="text", name="email", placeholder="כתובת אימייל")
         .control-group
             .control-group
-                label.control-label(for="password") Password
+                label.control-label(for="password") סיסמה
                 .controls
-                    input(type="password", name="password", placeholder="Password")
+                    input(type="password", name="password", placeholder="סיסמה")
 .modal-footer
-  a.btn(data-dismiss="modal") Close
-  a.btn.btn-primary(onclick="$('.modal-body > form').submit();") Log In
+  a.btn(data-dismiss="modal") סגור
+  a.btn.btn-primary(onclick="$('.modal-body > form').submit();") התחבר

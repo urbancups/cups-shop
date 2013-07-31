@@ -1,33 +1,33 @@
 .modal-header
   a.close(data-dismiss="modal") &times;
-  h3 Register
+  h3 הירשם
 .modal-body
   form(action="/account/register", method="post").form-horizontal
     fieldset
         br
         .control-group
             .control-group
-                label.control-label(for="name.first") First Name 
+                label.control-label(for="name.first") שם פרטי
                 .controls
-                    input(type="text", name="name.first", placeholder="First Name")
+                    input(type="text", name="name.first", placeholder="שם פרטי")
             .control-group
-                label.control-label(for="name.last") Last Name
+                label.control-label(for="name.last") שם משפחה
                 .controls
-                    input(type="text",  name="name.last", placeholder="Last Name")
+                    input(type="text",  name="name.last", placeholder="שם משפחה")
         .control-group
             .control-group
-                label.control-label(for="email") Email
+                label.control-label(for="email") אימייל
                 .controls
-                    input(type="text", name="email", placeholder="Email Address")
+                    input(type="text", name="email", placeholder="כתובת אימייל")
         .control-group
             .control-group
-                label.control-label(for="password") Password
+                label.control-label(for="password") סיסמה
                 .controls
-                    input(type="password", name="password", placeholder="Password")
+                    input(type="password", name="password", placeholder="סיסמה")
             .control-group
-                label.control-label(for="passwordConf") Password Confirm
+                label.control-label(for="passwordConf") שוב סיסמה
                 .controls
-                    input(type="password", name="passwordConf", placeholder="Password Confirm")
+                    input(type="password", name="passwordConf", placeholder="שוב סיסמה")
 .modal-footer
-  a.btn(data-dismiss="modal") Close
-  a.btn.btn-primary(onclick="$('.modal-body > form').submit();") Register
+  a.btn(data-dismiss="modal") סגור
+  a.btn.btn-primary(onclick="$('.modal-body > form').submit();") הירשם
