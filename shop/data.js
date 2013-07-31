@@ -31,23 +31,40 @@ module.exports = {
 
     loadProductsFromCSV: function(source) {
         var db = csvdb(source, { autofetch : 5000 });
-        db.on('fetch', function() {
-          for (var key in db.entries) {
-            var p = db.entries[key];
-            var product = new Product({
-                name: p.name,
-                pricing: {
-                    retail: p.price,
-                },
-                details: {
-                    description: p.description,
-                },
-                featured: p.featured,
-            },
-            {_id: false}
-            );
-            console.log(JSON.stringify(product));
-            // product.save();
+
+        db.on('fetch', function(curr, prev) {
+          var modified = false;
+          curr = db.entries;
+
+          // check if anything changed
+          modified = JSON.stringify(curr) !== JSON.stringify(prev);
+
+          // if modified, purge collection and insert the new items
+          if (modified) {
+            Product.remove(function(err) {
+              for (var key in curr) {
+                var p = curr[key];
+                var product = new Product({
+                  _id: key,
+                  name: p.name,
+                  seo: p.seo,
+                  category: p.category,
+                  pricing: {
+                     retail: p.price,
+                  },
+                  details: {
+                     description: p.description,
+                  },
+                  featured: p.featured,
+                });
+                product.save();
+                modified = true;
+              }
+            });
+          }
+          
+          if (modified) {
+            console.log('csvdb was modified, updating db accordingly');
           }
         });
     },

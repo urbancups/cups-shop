@@ -2,8 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
+  _id: {type: String, required: true},
   sku: { type: String, required: false },
-  category: { type: String, required: false },
+  category: { type: String, required: true },
   name: { type: String, required: true },
   make: { type: String, required: false },
   model: { type: String, required: false },
