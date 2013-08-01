@@ -34,16 +34,7 @@ html(lang="en")
             #cart
               include ../cart/cart
 
-
     .container-fluid
-      .navbar
-        .navbar-inner
-          ul.nav
-            each category in categories
-              li
-                a(href="/category/#{category.seo}") #{category.name}
-
-      .main
         block content
       hr
     script(src="http://code.jquery.com/jquery.min.js", type="text/javascript")

@@ -1,5 +1,13 @@
 extends layout
 block content
+  .navbar
+    .navbar-inner
+      ul.nav
+        each category in categories
+          li
+            a(href="/category/#{category.seo}") #{category.name}
+
+  .main
   a(href="#").thumbnail
     img(src="http://placehold.it/930x160", alt="")
   hr
