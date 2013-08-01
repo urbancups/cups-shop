@@ -12,6 +12,8 @@ html(lang="en")
           .container
             a.pull-left(href="/")
               img.brand.logo(src='/img/logo.png')
+            form.navbar-search.pull-left
+              input.search-query(type="text", placeholder="חפש")
             ul.nav
               li
                 a(href="/") בית
@@ -23,26 +25,24 @@ html(lang="en")
                 li
                   a(data-toggle="modal", data-target="#modal", href="/modals/register") הירשם
                 li
-                  a(data-toggle="modal", data-target="#modal", href="/modals/login") התחבר 
+                  a(data-toggle="modal", data-target="#modal", href="/modals/login") התחבר
               else
                 li
                   a(href="/account/home") חשבון
-                li       
+                li
                   a(href="/account/logout") התנתק
             #cart
               include ../cart/cart
-            
+
 
     .container-fluid
-      
       .navbar
         .navbar-inner
           ul.nav
             each category in categories
               li
                 a(href="/category/#{category.seo}") #{category.name}
-          form.navbar-search.pull-right
-            input.search-query(type="text", placeholder="Search")
+
       .main
         block content
       hr
