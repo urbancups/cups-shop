@@ -16,7 +16,8 @@ block content
       each product in featured
         li.span3
           a(href="/product/#{product.seo}").thumbnail
-            img(src="http://placehold.it/210x160", alt="")
+            //- img(src="http://placehold.it/210x160", alt="")
+            img(src="#{product.picture}" ,height="210", width="160")
             h6 #{product.name}
               p.pull-left ₪#{product.pricing.retail}
 block scripts
