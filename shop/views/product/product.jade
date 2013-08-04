@@ -1,10 +1,11 @@
-extend layout
+extend ../main/layout
 block content
     h2 #{product.name}
     hr
     .row
       .span6
-        img(src="http://placehold.it/420x320", alt="")
+        //- img(src="http://placehold.it/420x320", alt="")
+        img(src="#{product.picture}")
       .span6
         hr
         p Make:  #{product.make}

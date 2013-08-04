@@ -10,6 +10,7 @@ var ProductSchema = new Schema({
   model: { type: String, required: false },
   upc: { type: String, required: false },
   seo: { type: String, required: false },
+  picture: {type: String, required: false},
   featured: { type: Boolean, required: false },
 
   shipping: {
