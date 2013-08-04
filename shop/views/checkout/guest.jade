@@ -1,4 +1,4 @@
-extend layout
+extend ../main/layout
 block content
   h2 #{title}
   hr
@@ -7,69 +7,61 @@ block content
       fieldset.span6
         .control-group
             .control-group
-                label.control-label(for="nameFirst") First Name 
+                label.control-label(for="nameFirst") שם פרטי
                 .controls
-                    input(type="text", name="nameFirst", placeholder="First Name")
+                    input(type="text", name="nameFirst", placeholder="שם פרטי")
             .control-group
-                label.control-label(for="nameLast") Last Name
+                label.control-label(for="nameLast") שם משפחה
                 .controls
-                    input(type="text",  name="nameLast", placeholder="Last Name")
+                    input(type="text",  name="nameLast", placeholder="שם משפחה")
         .control-group
             .control-group
-                label.control-label(for="email") Email
+                label.control-label(for="email") כתובת אימייל
                 .controls
-                    input(type="text", name="email", placeholder="Email Address")
+                    input(type="text", name="email", placeholder="אימייל")
         .control-group
             .control-group
-                label.control-label(for="password") Password
+                label.control-label(for="password") סיסמה
                 .controls
-                    input(type="password", name="password", placeholder="Password")#password
+                    input(type="password", name="password", placeholder="סיסמה")#password
             .control-group
-                label.control-label(for="passwordConf") Password Confirm
+                label.control-label(for="passwordConf") אימות סיסמה
                 .controls
-                    input(type="password", name="passwordConf", placeholder="Password Confirm")
+                    input(type="password", name="passwordConf", placeholder="אישור סיסמה")
         .control-group
             .control-group
-                label.control-label(for="contactNum") Contact Number
+                label.control-label(for="contactNum") טלפון
                 .controls
-                    input(type="text", name="contactNum", placeholder="Contact Number")
+                    input(type="text", name="contactNum", placeholder="טלפון")
       fieldset.span6
         .control-group
             .control-group
-                label.control-label(for="address1") Address 1
-                .controls    
-                    input(type="text", name="address1", placeholder="Address 1")
-            .control-group
-                label.control-label(for="address2") Address 2
-                .controls 
-                    input(type="text", name="address2", placeholder="Address 2")
+                label.control-label(for="address1") כתובת רחוב
+                .controls
+                    input(type="text", name="address1", placeholder="כתובת רחוב")
         .control-group
             .control-group
-                label.control-label(for="addressTown") Town
+                label.control-label(for="addressTown") עיר
                 .controls
-                    input(type="text", name="addressTown", placeholder="Town")
-            .control-group
-                label.control-label(for="addressProvince") Province
-                .controls
-                    input(type="text", name="addressProvince", placeholder="Province")
+                    input(type="text", name="addressTown", placeholder="עיר")
         .control-group
             .control-group
-                label.control-label(for="addressPcd") Zip / Postal Code
+                label.control-label(for="addressPcd") מיקוד
                 .controls
-                    input(type="text", name="addressPcd", placeholder="Zip / Postal Code")
+                    input(type="text", name="addressPcd", placeholder="מיקוד")
             .control-group
-                label.control-label(for="addressCountry") Country
+                label.control-label(for="addressCountry") מדינה
                 .controls
-                    select(name="addressCountry", data-countryList="US,GB").input-medium.bfh-countries
+                    select(name="addressCountry", data-countryList="IL,US").input-medium.bfh-countries
         .control-group
             .control-group
                 .controls
                     label.checkbox
-                        input(type='checkbox', name='checkTerms') 
-                        span.help-inline Accept 
-                            a(data-toggle="modal", data-target="#modal", href="/modals/terms") Terms & Conditions
+                        input(type='checkbox', name='checkTerms')
+                        span.help-inline Accept
+                            a(data-toggle="modal", data-target="#modal", href="/modals/terms") תנאי שימוש
             .control-group
-                a(onclick="$('.row > form').submit();").btn.btn-primary.pull-right Continue
+                a(onclick="$('.row > form').submit();").btn.btn-primary.pull-right המשך
 block scripts
         script(src="/js/controller/checkout/guest.js")
         script(src="/js/plugins/bootstrap-formhelpers-countries.js")

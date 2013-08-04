@@ -1,26 +1,27 @@
-extend layout
+extends ../main/layout
+
 block content
   h2 #{title}
   hr
   table.table.table-hover
     thead
-      th Name
-      th Price
-      th Quantity
-      th Remove
+      th שם פריט
+      th מחיר
+      th כמות
+      th הסר
     tbody
       each product in cart.products
         tr
-          td  
+          td
             a(href='/product/#{product.seo}') #{product.name}
           td  ₪#{product.price}
           td= product.quantity
-          td 
+          td
             i.icon-remove
-  .row
-     .pull-right
-        h4 Total: ₪#{cart.total}
-        if (!locals.logged)
-            a(href="/checkout/guest").btn.btn-primary Continue As Guest
-        else
-            a(href="/checkout/order").btn.btn-primary Continue As #{user.name.first}
+  .row-fluid
+    h4 Total: ₪#{cart.total}
+    if (!locals.logged)
+        a(href="/checkout/guest").btn.btn-primary המשך כאורח
+    else
+        a(href="/checkout/order").btn.btn-primary המשך כ#{user.name.first}
+
