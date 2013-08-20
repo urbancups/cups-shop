@@ -8,11 +8,10 @@ block content
             a(href="/category/#{category.seo}") #{category.name}
 
   .main
-  a(href="#").thumbnail
+  //- a(href="#").thumbnail
     //- img(src="http://placehold.it/930x160", alt="")
-    img(src="http://cdn.cupstelaviv.com/img/cups-store/cups-banner.jpg", alt="")
-  hr
-  h4 מומלצים
+  //- hr
+  h2 מומלצים
   ul.thumbnails
       each product in featured
         li.span3
