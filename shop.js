@@ -10,22 +10,26 @@ var database = require('./shop/data');
 var config = require('./shop/config.json');
 var info = require('./package.json');
 
+var PRODUCTS = 'https://docs.google.com/spreadsheet/pub?key=0AikfFHWIDLaxdGFtamVXX1k3VjJSR1daZExZei1MZFE&single=true&gid=0&output=csv';
+var CATEGORIES = 'https://docs.google.com/spreadsheet/pub?key=0AikfFHWIDLaxdGFtamVXX1k3VjJSR1daZExZei1MZFE&single=true&gid=1&output=csv';
+
 console.log('NodeShop Started!');
 console.log('Running Version ' + info.version);
 
 // Connect to database
 database.startup(config.connection);
 console.log('Connecting to database...');
-database.loadProductsFromCSV('https://docs.google.com/spreadsheet/pub?key=0AikfFHWIDLaxdGFtamVXX1k3VjJSR1daZExZei1MZFE&single=true&gid=0&output=csv')
+database.loadProductsFromCSV(PRODUCTS);
+database.loadCategoriesFromCSV(CATEGORIES);
 console.log('Loading products from CSV');
-  
+
 // Configure Express
 app.configure(function(){
-    
+
     // Set up jade
     app.set('views', __dirname + '/shop/views');
     app.set('view engine', 'jade');
-    
+
     app.use(express.favicon(__dirname + '/shop/public/img/favicon.png'));
     app.use(express.cookieParser());
     app.use(express.bodyParser());
@@ -39,16 +43,16 @@ app.configure(function(){
         // Get session secret from config file
         secret: config.cookie_secret
         }));
-    
+
     // Set up passport
     app.use(passport.initialize());
     app.use(passport.session());
-    
+
     // Define public assets
     app.use(express.static(__dirname + '/shop/public'));
-  
+
 });
-    
+
 // Require router, passing passport for authenticating pages
 require('./shop/router')(app, passport);
 

@@ -65,7 +65,39 @@ module.exports = {
           }
 
           if (modified) {
-            console.log('csvdb was modified, updating db accordingly');
+            console.log('products csv was modified, updating db accordingly');
+          }
+        });
+    },
+
+    loadCategoriesFromCSV: function(source) {
+        var db = csvdb(source, { autofetch : 5000 });
+
+        db.on('fetch', function(curr, prev) {
+          var modified = false;
+          curr = db.entries;
+
+          // check if anything changed
+          modified = JSON.stringify(curr) !== JSON.stringify(prev);
+
+          // if modified, purge collection and insert the new items
+          if (modified) {
+            Category.remove(function(err) {
+              for (var key in curr) {
+                var c = curr[key];
+                var category = new Category({
+                  _id: key,
+                  name: c.name,
+                  seo: c.seo,
+                });
+                category.save();
+                modified = true;
+              }
+            });
+          }
+
+          if (modified) {
+            console.log('categories csv was modified, updating db accordingly');
           }
         });
     },
