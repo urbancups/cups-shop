@@ -57,6 +57,7 @@ module.exports = {
                      description: p.description,
                   },
                   featured: p.featured,
+                  make: p.make,
                 });
                 product.save();
                 modified = true;

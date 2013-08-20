@@ -1,15 +1,24 @@
 extend ../main/layout
 block content
+    .navbar
+      .navbar-inner
+        ul.nav
+          each category in categories
+            li
+              a(href="/category/#{category.seo}") #{category.name}
     h2 #{product.name}
     hr
     .row
       .span6
-        //- img(src="http://placehold.it/420x320", alt="")
         img(src="#{product.picture}")
       .span6
         hr
-        p Make:  #{product.make}
-        p Model:  #{product.model}
+        p
+          strong יצרן:
+          |  #{product.make}
+        p
+          strong תאור:
+          |  #{product.details.description}
         hr
         h3.pull-left ₪#{product.pricing.retail}
-        a(addId='#{product.id}').btn.btn-primary.btn-large.pull-right Add to cart
+        a(addId='#{product.id}').btn.btn-primary.btn-large.pull-right הוסף לסל
