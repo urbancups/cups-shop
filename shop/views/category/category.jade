@@ -1,5 +1,12 @@
-extend layout
+extend ../main/layout
 block content
+  .navbar
+    .navbar-inner
+      ul.nav
+        each category in categories
+          li
+            a(href="/category/#{category.seo}") #{category.name}
+
   h2 #{locals.title}
   hr
   ul.thumbnails
@@ -7,8 +14,8 @@ block content
         li.span3
           a(href="/product/#{product.seo}").thumbnail
             img(src="http://placehold.it/210x160", alt="")
-            h6 #{product.name}
+            h6 &nbsp; #{product.name}
               p.pull-right ₪#{product.pricing.retail}
 block scripts
-  
-  
+
+

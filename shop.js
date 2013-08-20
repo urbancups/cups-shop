@@ -19,8 +19,8 @@ console.log('Running Version ' + info.version);
 // Connect to database
 database.startup(config.connection);
 console.log('Connecting to database...');
-database.loadProductsFromCSV(PRODUCTS);
 database.loadCategoriesFromCSV(CATEGORIES);
+database.loadProductsFromCSV(PRODUCTS);
 console.log('Loading products from CSV');
 
 // Configure Express
